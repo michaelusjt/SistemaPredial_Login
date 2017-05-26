@@ -1,0 +1,66 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema vendas
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema vendas
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `projetoWeb` DEFAULT CHARACTER SET utf8 ;
+USE `projetoWeb` ;
+
+-- -----------------------------------------------------
+-- Table `vendas`.`Cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `projetoWeb`.`Empresa` (
+  `id` INT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cnpj` VARCHAR(100) NOT NULL,
+  `razaoSocial` VARCHAR(100) NULL DEFAULT NULL,
+  `conjunto` VARCHAR(100) NULL DEFAULT NULL,
+  `horarioDeFuncionamento` VARCHAR(60) NULL DEFAULT NULL,
+  `temperaturaDoArCondicionado` VARCHAR(60) NULL DEFAULT NULL,
+  `horarioDoArCondicionado` VARCHAR(60) NULL DEFAULT NULL,
+   PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+USE `projetoWeb` ;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+USE `projetoWeb` ;
+INSERT INTO `empresa` (`id`,`cnpj`,`razaoSocial`,`conjunto`,`horarioDeFuncionamento`,`temperaturaDoArCondicionado`,`horarioDoArCondicionado`) VALUES (1,'10000','Empresa1','9','Das 08 as 18','27','Das 09 as 13');
+INSERT INTO `empresa` (`id`,`cnpj`,`razaoSocial`,`conjunto`,`horarioDeFuncionamento`,`temperaturaDoArCondicionado`,`horarioDoArCondicionado`) VALUES (2,'20000','Empresa2','2','Das 07 as 18','25','Das 09 as 12');
+select * from empresa;
+
+CREATE TABLE IF NOT EXISTS `projetoWeb`.`Usuario` (
+  `id` INT(30) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `cpf` VARCHAR(11) NULL DEFAULT NULL,
+  `rg` VARCHAR(11) NULL DEFAULT NULL,
+  `endereco` VARCHAR(100) NULL DEFAULT NULL,
+  `dataDeNascimento` VARCHAR(10) NULL DEFAULT NULL,
+  `nomeEmpresa` VARCHAR(60) NULL DEFAULT NULL,
+   PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+select * from usuario;
+select * from empresa;
+
+INSERT INTO `usuario` (`id`,`nome`,`cpf`,`rg`,`endereco`,`dataDeNascimento`,`nomeEmpresa`) VALUES (2,'Jose','99999999','111111111','Rua Doze','21/12/1990','TI Preta');
+
+
+USE `projetoWeb` ;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
